@@ -18,4 +18,5 @@ class Background : RenderableEntity {
           let fillStyle4 = FillStyle(color:Color(.green))
           canvas.render(fillStyle4, table)
       }
+      //JP is pretty gay
 }
