@@ -133,10 +133,10 @@ class InteractionLayer : Layer, KeyDownHandler {
 
     override func postCalculate(canvas:Canvas){ //1899
         if Self.ball.boundingRect().topRight.x >= 1899 {
-            Self.leftScoreboard.addScore(amount: 1)
+            Self.rightScoreboard.addScore(amount: 1)
         }
         if Self.ball.boundingRect().topLeft.x <= 2/4 {
-            Self.rightScoreboard.addScore(amount: 1)
+            Self.leftScoreboard.addScore(amount: 1)
         }
         if Self.ball.boundingRect().topLeft.y <= 1 {
             Self.topScoreboard.addScore(amount: 1)
