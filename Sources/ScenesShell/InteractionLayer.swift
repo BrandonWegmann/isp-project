@@ -8,8 +8,9 @@ import Scenes
 
 
 class InteractionLayer : Layer, KeyDownHandler {
+
     static let ball = Ball()
-    var canvasSize = Size(width: 0, height: 0)
+    var canvasSize = Size(width:0, height:0)
     static let paddleLeft = Paddle(rect:Rect(size:Size(width:20, height:200)))
     static let paddleRight = Paddle(rect:Rect(size:Size(width:20, height:200)))
     static let paddletop = Paddle(rect:Rect(size:Size(width:250, height:20)))
@@ -20,7 +21,7 @@ class InteractionLayer : Layer, KeyDownHandler {
     static let bottomScoreboard = Scoreboard()
 
     required  init() {
-        Self.ball.changeVelocity(velocityX: 14, velocityY: 14)
+        Self.ball.changeVelocity(velocityX: 8, velocityY: 8)
         // Using a meaningful name can be helpful for debugging
         super.init(name:"Interaction")
 
@@ -45,7 +46,7 @@ class InteractionLayer : Layer, KeyDownHandler {
             }
         case "s" :
             //left paddle down
-            if Self.paddleLeft.rectangle.rect.topLeft.y <= 790 {
+            if Self.paddleLeft.rectangle.rect.topLeft.y >= canvasSize.height-50 {
                 Self.paddleLeft.move(to:Point(x: Self.paddleLeft.rectangle.rect.topLeft.x, y: Self.paddleLeft.rectangle.rect.topLeft.y + movement))
             }
         case "ArrowUp" :
@@ -55,7 +56,7 @@ class InteractionLayer : Layer, KeyDownHandler {
             }
         case "ArrowDown" :
             //right paddle down
-            if Self.paddleRight.rectangle.rect.topLeft.y <= 790 {
+            if Self.paddleRight.rectangle.rect.topLeft.y <= canvasSize.height-50 {
                 Self.paddleRight.move(to:Point(x: Self.paddleRight.rectangle.rect.topLeft.x, y: Self.paddleRight.rectangle.rect.topLeft.y + movement))
             }
         case "a" :
@@ -65,7 +66,7 @@ class InteractionLayer : Layer, KeyDownHandler {
             }
         case "d" :
             //top paddle right
-            if Self.paddletop.rectangle.rect.topLeft.x <= 1580 {
+            if Self.paddletop.rectangle.rect.topLeft.x <= canvasSize.width-50 {
                 Self.paddletop.move(to:Point(x: Self.paddletop.rectangle.rect.topLeft.x + movement, y: Self.paddletop.rectangle.rect.topLeft.y))
             }
         case "ArrowLeft" :
@@ -75,7 +76,7 @@ class InteractionLayer : Layer, KeyDownHandler {
             }
         case "ArrowRight" :
             //bottom paddle right
-            if Self.paddlebottom.rectangle.rect.topLeft.y <= 1580 {
+            if Self.paddlebottom.rectangle.rect.topLeft.y <= canvasSize.width-50 {
                 Self.paddlebottom.move(to:Point(x: Self.paddlebottom.rectangle.rect.topLeft.x + movement, y: Self.paddlebottom.rectangle.rect.topLeft.y))
             }
         default:
