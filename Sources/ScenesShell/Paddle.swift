@@ -1,7 +1,7 @@
 import Igis
 import Scenes
 
-class Paddle: RenderableEntity {
+    class Paddle: RenderableEntity {
     var rectangle: Rectangle
 
     init(rect:Rect) {
