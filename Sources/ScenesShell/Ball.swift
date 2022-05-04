@@ -5,7 +5,6 @@ class Ball: RenderableEntity, MouseMoveHandler {
     var compressedCounter : UInt
     var velocityX : Int
     var velocityY : Int
-    let text : Text
     var didRender = false
     let ellipse = Ellipse(center:Point(x:0, y:0), radiusX:25, radiusY:25, fillMode:.fillAndStroke)
     let strokeStyle = StrokeStyle(color:Color(.white))
@@ -16,8 +15,6 @@ class Ball: RenderableEntity, MouseMoveHandler {
         velocityY = 0
         compressedCounter = 0
         // Using a meaningful name can be helpful for debugging
-        text = Text(location:Point(x:520, y:270), text:"Rec Center")
-        text.font = "15pt Arial"
         super.init(name:"Ball")
     }
     func changeVelocity(velocityX:Int, velocityY:Int) {
@@ -45,14 +42,14 @@ class Ball: RenderableEntity, MouseMoveHandler {
         let tooFarDown = ballBoundingRect.topLeft.y + ballBoundingRect.size.height > canvasBoundingRect.topLeft.y + canvasBoundingRect.size.height
 
         if tooFarLeft || tooFarRight {
-            velocityX = -velocityX - 1
+            velocityX = -velocityX - 2
 
             ellipse.radiusX = 25
             ellipse.radiusY = 25
             compressedCounter = 10
         }
         if tooFarUp || tooFarDown {
-            velocityY = -velocityY - 1
+            velocityY = -velocityY - 2
             ellipse.radiusX = 25
             ellipse.radiusY = 25 
             compressedCounter = 10

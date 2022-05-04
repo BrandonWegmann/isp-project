@@ -2,7 +2,7 @@ import Igis
 import Scenes
 
 class Scoreboard: RenderableEntity {
-    let scoreboard:Text
+    let scoreboard: Text
 
     init() {
         scoreboard = Text(location:Point.zero, text:String(10), fillMode:.fill)
@@ -10,7 +10,7 @@ class Scoreboard: RenderableEntity {
 
         super.init(name:"Scoreboard")
     }
-    func addScore(amount:Int){
+    func subtractScore(amount:Int){
         scoreboard.text = String(Int(scoreboard.text)! - amount)
     }
     override func render(canvas:Canvas) {
