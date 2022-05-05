@@ -21,7 +21,7 @@ class InteractionLayer : Layer, KeyDownHandler {
     static let bottomScoreboard = Scoreboard()
 
     required  init() {
-        Self.ball.changeVelocity(velocityX: 8, velocityY: 8)
+        Self.ball.changeVelocity(velocityX: 14, velocityY: -14)
         // Using a meaningful name can be helpful for debugging
         super.init(name:"Interaction")
         // We insert our RenderableEntities in the constructor
@@ -65,7 +65,7 @@ class InteractionLayer : Layer, KeyDownHandler {
             }
         case "d" :
             //top paddle right
-            if Self.paddletop.rectangle.rect.topLeft.x <= 1890 {
+            if Self.paddletop.rectangle.rect.topLeft.x <= 1890  {
                 Self.paddletop.move(to:Point(x: Self.paddletop.rectangle.rect.topLeft.x + movement, y: Self.paddletop.rectangle.rect.topLeft.y))
             }
         case "ArrowLeft" :
@@ -132,16 +132,16 @@ class InteractionLayer : Layer, KeyDownHandler {
     }
 
     override func postCalculate(canvas:Canvas){ //1899
-        if Self.ball.boundingRect().topRight.x >= 1899 {
+        if Self.ball.boundingRect().topRight.x >= canvas.canvasSize!.width + 2 {
             Self.rightScoreboard.subtractScore(amount: 1)
         }
-        if Self.ball.boundingRect().topLeft.x <= 2/4 {
+        if Self.ball.boundingRect().topLeft.x <= 1/2 {
             Self.leftScoreboard.subtractScore(amount: 1)
         }
-        if Self.ball.boundingRect().topLeft.y <= 1/3 {
+        if Self.ball.boundingRect().topLeft.y <= 1/2 {
             Self.topScoreboard.subtractScore(amount: 1)
         }
-        if Self.ball.boundingRect().topLeft.y >= 915 {
+        if Self.ball.boundingRect().bottomLeft.y >= canvas.canvasSize!.height {
             Self.bottomScoreboard.subtractScore(amount: 1)
         }
     }
