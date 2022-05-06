@@ -11,7 +11,7 @@ import Scenes
     }
 
     override func render(canvas:Canvas) {
-        let strokeStyle = StrokeStyle(color:Color(.black))
+        let strokeStyle = StrokeStyle(color:Color(.white))
         let fillStyle = FillStyle(color:Color(.white))
         let lineWidth = LineWidth(width:2)
         canvas.render(strokeStyle, fillStyle, lineWidth, rectangle)

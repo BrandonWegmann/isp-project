@@ -19,6 +19,10 @@ class InteractionLayer : Layer, KeyDownHandler {
     static let rightScoreboard = Scoreboard()
     static let topScoreboard = Scoreboard()
     static let bottomScoreboard = Scoreboard()
+    let rightScoreboardScore = Int(InteractionLayer.rightScoreboard.scoreboard.text)!
+    let leftScoreboardScore = Int(InteractionLayer.leftScoreboard.scoreboard.text)!
+    let topScoreboardScore = Int(InteractionLayer.topScoreboard.scoreboard.text)!
+    let bottomScoreboardScore = Int(InteractionLayer.bottomScoreboard.scoreboard.text)!
 
     required  init() {
         Self.ball.changeVelocity(velocityX: 14, velocityY: -14)
@@ -45,7 +49,7 @@ class InteractionLayer : Layer, KeyDownHandler {
             }
         case "s" :
             //left paddle down
-            if Self.paddleLeft.rectangle.rect.topLeft.y >= 790 {
+            if Self.paddleLeft.rectangle.rect.topLeft.y <= 790 {
                 Self.paddleLeft.move(to:Point(x: Self.paddleLeft.rectangle.rect.topLeft.x, y: Self.paddleLeft.rectangle.rect.topLeft.y + movement))
             }
         case "ArrowUp" :
@@ -85,8 +89,8 @@ class InteractionLayer : Layer, KeyDownHandler {
     override func preSetup(canvasSize: Size, canvas: Canvas) {
         Self.paddleLeft.move(to:Point(x: 10, y: canvasSize.center.y))
         Self.paddleRight.move(to:Point(x:canvasSize.width-20, y:canvasSize.center.y))
-        Self.paddletop.move(to:Point(x:canvasSize.center.x, y: 10))
-        Self.paddlebottom.move(to:Point(x:canvasSize.center.x, y:canvasSize.height-40))
+        Self.paddletop.move(to:Point(x:canvasSize.center.x-100, y: 10))
+        Self.paddlebottom.move(to:Point(x:canvasSize.center.x-100, y:canvasSize.height-40))
         Self.leftScoreboard.scoreboard.location = Point(x:canvasSize.width/4, y:canvasSize.height/2)
         Self.rightScoreboard.scoreboard.location = Point(x:3*canvasSize.width/4, y:canvasSize.height/2)
         Self.topScoreboard.scoreboard.location = Point(x:canvasSize.width/2, y:canvasSize.height/8)
@@ -131,7 +135,7 @@ class InteractionLayer : Layer, KeyDownHandler {
         }
     }
 
-    override func postCalculate(canvas:Canvas){ //1899
+    override func postCalculate(canvas:Canvas){
         if Self.ball.boundingRect().topRight.x >= canvas.canvasSize!.width + 2 {
             Self.rightScoreboard.subtractScore(amount: 1)
         }
@@ -145,5 +149,4 @@ class InteractionLayer : Layer, KeyDownHandler {
             Self.bottomScoreboard.subtractScore(amount: 1)
         }
     }
-    
 }

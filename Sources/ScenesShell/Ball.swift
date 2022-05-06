@@ -42,14 +42,14 @@ class Ball: RenderableEntity, MouseMoveHandler {
         let tooFarDown = ballBoundingRect.topLeft.y + ballBoundingRect.size.height > canvasBoundingRect.topLeft.y + canvasBoundingRect.size.height
 
         if tooFarLeft || tooFarRight {
-            velocityX = -velocityX - 2
+            velocityX = -velocityX 
 
             ellipse.radiusX = 25
             ellipse.radiusY = 25
             compressedCounter = 10
         }
         if tooFarUp || tooFarDown {
-            velocityY = -velocityY - 2
+            velocityY = -velocityY
             ellipse.radiusX = 25
             ellipse.radiusY = 25 
             compressedCounter = 10
