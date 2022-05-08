@@ -19,10 +19,10 @@ class InteractionLayer : Layer, KeyDownHandler {
     static let rightScoreboard = Scoreboard()
     static let topScoreboard = Scoreboard()
     static let bottomScoreboard = Scoreboard()
-    let rightScoreboardScore = Int(InteractionLayer.rightScoreboard.scoreboard.text)!
-    let leftScoreboardScore = Int(InteractionLayer.leftScoreboard.scoreboard.text)!
-    let topScoreboardScore = Int(InteractionLayer.topScoreboard.scoreboard.text)!
-    let bottomScoreboardScore = Int(InteractionLayer.bottomScoreboard.scoreboard.text)!
+    //let rightScoreboardScore = Int(InteractionLayer.rightScoreboard.scoreboard.text)!
+    //let leftScoreboardScore = Int(InteractionLayer.leftScoreboard.scoreboard.text)!
+    //let topScoreboardScore = Int(InteractionLayer.topScoreboard.scoreboard.text)!
+    //let bottomScoreboardScore = Int(InteractionLayer.bottomScoreboard.scoreboard.text)!
 
     required  init() {
         Self.ball.changeVelocity(velocityX: 14, velocityY: -14)
@@ -40,7 +40,7 @@ class InteractionLayer : Layer, KeyDownHandler {
         insert(entity: Self.bottomScoreboard, at: .front)
     }
     func onKeyDown(key:String, code:String, ctrlKey:Bool, shiftKey:Bool, altKey:Bool, metaKey:Bool) {
-        let movement = 80
+        let movement = 90
         switch(key) {
         case "w" :
             //left paddle up
@@ -136,17 +136,25 @@ class InteractionLayer : Layer, KeyDownHandler {
     }
 
     override func postCalculate(canvas:Canvas){
-        if Self.ball.boundingRect().topRight.x >= canvas.canvasSize!.width + 2 {
-            Self.rightScoreboard.subtractScore(amount: 1)
+        if Self.ball.boundingRect().topRight.x >= canvas.canvasSize!.width  {
+            if(Int(Self.rightScoreboard.scoreboard.text)! > 0){                
+                Self.rightScoreboard.subtractScore(amount: 1)
+            }    
         }
         if Self.ball.boundingRect().topLeft.x <= 1/2 {
-            Self.leftScoreboard.subtractScore(amount: 1)
+            if(Int(Self.leftScoreboard.scoreboard.text)! > 0){
+                Self.leftScoreboard.subtractScore(amount: 1)
+            }    
         }
         if Self.ball.boundingRect().topLeft.y <= 1/2 {
-            Self.topScoreboard.subtractScore(amount: 1)
+            if(Int(Self.topScoreboard.scoreboard.text)! > 0){
+                Self.topScoreboard.subtractScore(amount: 1)
+            }    
         }
         if Self.ball.boundingRect().bottomLeft.y >= canvas.canvasSize!.height {
-            Self.bottomScoreboard.subtractScore(amount: 1)
+            if(Int(Self.bottomScoreboard.scoreboard.text)! > 0){
+                Self.bottomScoreboard.subtractScore(amount: 1)
+            }    
         }
     }
 }

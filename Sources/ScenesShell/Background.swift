@@ -13,13 +13,13 @@ class Background : RenderableEntity {
           super.init(name:"Background")
       }
     override func render(canvas:Canvas) {
-            let leftScoreboardScore = Int(InteractionLayer.leftScoreboard.scoreboard.text)!
+          let leftScoreboardScore = Int(InteractionLayer.leftScoreboard.scoreboard.text)!
             let rightScoreboardScore = Int(InteractionLayer.rightScoreboard.scoreboard.text)!
             let topScoreboardScore = Int(InteractionLayer.topScoreboard.scoreboard.text)!
             let bottomScoreboardScore = Int(InteractionLayer.bottomScoreboard.scoreboard.text)!
             let ball = InteractionLayer.ball
 
-            if(leftScoreboardScore <= 0 && rightScoreboardScore <= 0 && topScoreboardScore <= 0 ){
+            if(leftScoreboardScore == 0 && rightScoreboardScore == 0 && topScoreboardScore == 0 ){
                 let tableRect = Rect(topLeft:Point(x:0, y:0), size:Size(width:canvas.canvasSize!.width, height:canvas.canvasSize!.height))
                 table = Rectangle(rect:tableRect, fillMode:.fill)
                 let fillStyle4 = FillStyle(color:Color(.red))
@@ -32,7 +32,7 @@ class Background : RenderableEntity {
                 let fillStyle4 = FillStyle(color:Color(.green))
                 canvas.render(fillStyle4, table)
             }
-            if(leftScoreboardScore <= 0 && rightScoreboardScore <= 0 && bottomScoreboardScore <= 0){
+            if(leftScoreboardScore == 0 && rightScoreboardScore == 0 && bottomScoreboardScore == 0){
                 let tableRect = Rect(topLeft:Point(x:0, y:0), size:Size(width:canvas.canvasSize!.width, height:canvas.canvasSize!.height))
                 table = Rectangle(rect:tableRect, fillMode:.fill)
                 let fillStyle4 = FillStyle(color:Color(.red))
@@ -45,7 +45,7 @@ class Background : RenderableEntity {
                 let fillStyle4 = FillStyle(color:Color(.green))
                 canvas.render(fillStyle4, table)
             }
-            if(leftScoreboardScore <= 0 && topScoreboardScore <= 0 && bottomScoreboardScore <= 0){
+            if(leftScoreboardScore == 0 && topScoreboardScore == 0 && bottomScoreboardScore == 0){
                 let tableRect = Rect(topLeft:Point(x:0, y:0), size:Size(width:canvas.canvasSize!.width, height:canvas.canvasSize!.height))
                 table = Rectangle(rect:tableRect, fillMode:.fill)
                 let fillStyle4 = FillStyle(color:Color(.red))
@@ -58,7 +58,7 @@ class Background : RenderableEntity {
                 let fillStyle4 = FillStyle(color:Color(.green))
                 canvas.render(fillStyle4, table)
             }
-            if(rightScoreboardScore <= 0 && topScoreboardScore <= 0 && bottomScoreboardScore <= 0){
+            if(rightScoreboardScore == 0 && topScoreboardScore == 0 && bottomScoreboardScore == 0){
                 let tableRect = Rect(topLeft:Point(x:0, y:0), size:Size(width:canvas.canvasSize!.width, height:canvas.canvasSize!.height))
                 table = Rectangle(rect:tableRect, fillMode:.fill)
                 let fillStyle4 = FillStyle(color:Color(.red))
