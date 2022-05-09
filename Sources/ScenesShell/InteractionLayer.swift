@@ -19,10 +19,6 @@ class InteractionLayer : Layer, KeyDownHandler {
     static let rightScoreboard = Scoreboard()
     static let topScoreboard = Scoreboard()
     static let bottomScoreboard = Scoreboard()
-    //let rightScoreboardScore = Int(InteractionLayer.rightScoreboard.scoreboard.text)!
-    //let leftScoreboardScore = Int(InteractionLayer.leftScoreboard.scoreboard.text)!
-    //let topScoreboardScore = Int(InteractionLayer.topScoreboard.scoreboard.text)!
-    //let bottomScoreboardScore = Int(InteractionLayer.bottomScoreboard.scoreboard.text)!
 
     required  init() {
         Self.ball.changeVelocity(velocityX: 14, velocityY: -14)
@@ -40,7 +36,7 @@ class InteractionLayer : Layer, KeyDownHandler {
         insert(entity: Self.bottomScoreboard, at: .front)
     }
     func onKeyDown(key:String, code:String, ctrlKey:Bool, shiftKey:Bool, altKey:Bool, metaKey:Bool) {
-        let movement = 90
+        let movement = 100
         switch(key) {
         case "w" :
             //left paddle up
