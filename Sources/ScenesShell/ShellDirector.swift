@@ -12,7 +12,7 @@ class ShellDirector : Director {
     }
 
     override func framesPerSecond() -> Int {
-        return 50
+        return 50 //This will render the game at 50fps
     }
 
 }

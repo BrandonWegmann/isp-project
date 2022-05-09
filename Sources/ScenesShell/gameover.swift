@@ -12,7 +12,7 @@ class GameOver : RenderableEntity {
           // Using a meaningful name can be helpful for debugging
           super.init(name:"Background")
       }
-      override func render(canvas:Canvas) {
+      override func render(canvas:Canvas) { // This will render the rectangle 
           let tableRect = Rect(topLeft:Point(x:0, y:0), size:Size(width:1900, height:1900))
           table = Rectangle(rect:tableRect, fillMode:.fill)
           let fillStyle4 = FillStyle(color:Color(.green))
