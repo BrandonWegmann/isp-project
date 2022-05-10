@@ -27,4 +27,5 @@ class MainScene : Scene {
         insert(layer:interactionLayer, at:.inFrontOf(object:backgroundLayer))
         insert(layer:foregroundLayer, at:.front)
     }
+    //puts the different scenes at different points on the igis screen
 }

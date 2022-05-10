@@ -44,6 +44,7 @@ class Background : RenderableEntity {
                 table = Rectangle(rect:tableRect, fillMode:.fill)
                 let fillStyle4 = FillStyle(color:Color(.green))
                 canvas.render(fillStyle4, table)
-            } 
+            }
+            //if else statement checks to see which scoreboard are 0 and if three of the scoreboards are 0 then it will freeze the ball and turn the screen red
       }
 }

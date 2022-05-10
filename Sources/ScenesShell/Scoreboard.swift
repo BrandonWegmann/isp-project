@@ -13,10 +13,9 @@ class Scoreboard: RenderableEntity {
     func subtractScore(amount:Int){
      scoreboard.text = String(Int(scoreboard.text)! - amount)
     }
-    func noScore(amount:Int) {
-    scoreboard.text = String(Int(scoreboard.text)!)
-    }
+    //adds one to the scoreboard text 
     override func render(canvas:Canvas) {
         canvas.render(FillStyle(color:Color(.white)), scoreboard)
     }
+    //renders the scoreboard
 }
