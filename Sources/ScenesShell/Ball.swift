@@ -43,19 +43,19 @@ class Ball: RenderableEntity, MouseMoveHandler {
 
         if tooFarLeft || tooFarRight {
             velocityX = -velocityX
-            ellipse.radiusX = 35
-            ellipse.radiusY = 35
+            ellipse.radiusX = 30
+            ellipse.radiusY = 30
             compressedCounter = 10
         }
         if tooFarUp || tooFarDown {
             velocityY = -velocityY
-            ellipse.radiusX = 35
-            ellipse.radiusY = 35 
+            ellipse.radiusX = 30
+            ellipse.radiusY = 30 
             compressedCounter = 10
         }
         if compressedCounter == 0 {
-            ellipse.radiusX = 35
-            ellipse.radiusY = 35
+            ellipse.radiusX = 30
+            ellipse.radiusY = 30
         }else{
             compressedCounter -= 1
         }
