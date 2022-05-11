@@ -11,7 +11,7 @@ class Background : RenderableEntity {
     var table: Rectangle = Rectangle(rect:Rect(topLeft:Point(x:0, y:0), size:Size(width:1500, height:1500)))
     let supreme:Image
     init() {
-        guard let supremeURL = URL(string:"https://fontmeme.com/temporary/9f02a78a6db8f1db44718c206bdb6f58.png")
+        guard let supremeURL = URL(string:"https://fontmeme.com/permalink/220512/9f02a78a6db8f1db44718c206bdb6f58.png")
         else {
             fatalError("Failed to create URL for supreme")
         }

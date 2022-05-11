@@ -84,7 +84,7 @@ class InteractionLayer : Layer, KeyDownHandler {
     }
     override func preSetup(canvasSize: Size, canvas: Canvas) {
         Self.paddleLeft.move(to:Point(x: 10, y: canvasSize.center.y))
-        Self.paddleRight.move(to:Point(x:canvasSize.width-20, y:canvasSize.center.y))
+        Self.paddleRight.move(to:Point(x:canvasSize.width-30, y:canvasSize.center.y))
         Self.paddletop.move(to:Point(x:canvasSize.center.x-100, y: 10))
         Self.paddlebottom.move(to:Point(x:canvasSize.center.x-100, y:canvasSize.height-40))
         Self.leftScoreboard.scoreboard.location = Point(x:canvasSize.width/4, y:canvasSize.height/2)
