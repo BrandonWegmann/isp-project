@@ -9,7 +9,7 @@ class Ball: RenderableEntity, MouseMoveHandler {
     let ellipse = Ellipse(center:Point(x:0, y:0), radiusX:25, radiusY:25, fillMode:.fillAndStroke)
     let strokeStyle = StrokeStyle(color:Color(.white))
     let fillStyle = FillStyle(color:Color(.white))
-    let lineWidth = LineWidth(width:5)
+    let lineWidth = LineWidth(width:4)
     init() {
         velocityX = 0
         velocityY = 0
@@ -42,21 +42,20 @@ class Ball: RenderableEntity, MouseMoveHandler {
         let tooFarDown = ballBoundingRect.topLeft.y + ballBoundingRect.size.height > canvasBoundingRect.topLeft.y + canvasBoundingRect.size.height
 
         if tooFarLeft || tooFarRight {
-            velocityX = -velocityX 
-
-            ellipse.radiusX = 25
-            ellipse.radiusY = 25
+            velocityX = -velocityX
+            ellipse.radiusX = 35
+            ellipse.radiusY = 35
             compressedCounter = 10
         }
         if tooFarUp || tooFarDown {
             velocityY = -velocityY
-            ellipse.radiusX = 25
-            ellipse.radiusY = 25 
+            ellipse.radiusX = 35
+            ellipse.radiusY = 35 
             compressedCounter = 10
         }
         if compressedCounter == 0 {
-            ellipse.radiusX = 25
-            ellipse.radiusY = 25
+            ellipse.radiusX = 35
+            ellipse.radiusY = 35
         }else{
             compressedCounter -= 1
         }
