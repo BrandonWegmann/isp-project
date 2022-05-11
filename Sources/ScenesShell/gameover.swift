@@ -15,7 +15,7 @@ class GameOver : RenderableEntity {
       override func render(canvas:Canvas) { // This will render the rectangle 
           let tableRect = Rect(topLeft:Point(x:0, y:0), size:Size(width:1900, height:1900))
           table = Rectangle(rect:tableRect, fillMode:.fill)
-          let fillStyle4 = FillStyle(color:Color(.green))
+          let fillStyle4 = FillStyle(color:Color(.black))
           canvas.render(fillStyle4, table)
       }
 }
