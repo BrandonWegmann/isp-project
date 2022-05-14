@@ -1,7 +1,7 @@
 import Igis
 import Scenes
 
-/* had help from Sahil in getting the scoreboard to work */
+/* Used the same basics from 1521 to assist us in making the scoreboard although this one subtracts instead of adding */
 
 class Scoreboard: RenderableEntity {
     let scoreboard: Text
@@ -12,10 +12,10 @@ class Scoreboard: RenderableEntity {
 
         super.init(name:"Scoreboard")
     }
+    //takes one away from the scoreboard 
     func subtractScore(amount:Int){
      scoreboard.text = String(Int(scoreboard.text)! - amount)
     }
-    //adds one to the scoreboard text 
     override func render(canvas:Canvas) {
         canvas.render(FillStyle(color:Color(.white)), scoreboard)
     }

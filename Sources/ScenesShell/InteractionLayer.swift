@@ -5,7 +5,8 @@ import Scenes
  This class is responsible for the interaction Layer.
  Internally, it maintains the RenderableEntities for this layer.
  */
-
+//Used some of the same code from 1521 because some of the basics are the same
+//From the previous missions used codermerlin to assist us on this journey
 
 class InteractionLayer : Layer, KeyDownHandler {
 

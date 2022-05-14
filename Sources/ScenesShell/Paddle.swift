@@ -1,6 +1,6 @@
 import Igis
 import Scenes
-
+//Used the same basics for the paddles in 1521 to guide us in making it in the ISP
     class Paddle: RenderableEntity {
     var rectangle: Rectangle
 

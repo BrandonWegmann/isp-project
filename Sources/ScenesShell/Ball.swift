@@ -1,6 +1,8 @@
 import Igis
 import Scenes
 
+//Used code from 1521 and codermerlin to assist us in making the basics of the game like the ball bounding rect and 
+
 class Ball: RenderableEntity, MouseMoveHandler {
     var compressedCounter : UInt
     var velocityX : Int
@@ -43,19 +45,19 @@ class Ball: RenderableEntity, MouseMoveHandler {
 
         if tooFarLeft || tooFarRight {
             velocityX = -velocityX
-            ellipse.radiusX = 30
-            ellipse.radiusY = 30
+            ellipse.radiusX = 25
+            ellipse.radiusY = 25
             compressedCounter = 10
         }
         if tooFarUp || tooFarDown {
             velocityY = -velocityY
-            ellipse.radiusX = 30
-            ellipse.radiusY = 30 
+            ellipse.radiusX = 25
+            ellipse.radiusY = 25 
             compressedCounter = 10
         }
         if compressedCounter == 0 {
-            ellipse.radiusX = 30
-            ellipse.radiusY = 30
+            ellipse.radiusX = 25
+            ellipse.radiusY = 25
         }else{
             compressedCounter -= 1
         }
@@ -71,7 +73,7 @@ class Ball: RenderableEntity, MouseMoveHandler {
             let topLeft = ellipse.center - Point(x: ellipse.radiusX, y: ellipse.radiusY)
             let size = Size(width: 2 * ellipse.radiusX, height: 2 * ellipse.radiusY)
             return Rect (topLeft: topLeft, size: size)
-        }
+        }/*Nicholas M assisted us in making a clear rectagle to cover the balls trail*/
         override func render(canvas:Canvas) {
             let clear = canvas.canvasSize!
             if let canvasSize = canvas.canvasSize, !didRender {
