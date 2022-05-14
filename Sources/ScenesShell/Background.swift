@@ -22,6 +22,7 @@ class Background : RenderableEntity {
     override func setup(canvasSize:Size, canvas:Canvas) {
         canvas.setup(supreme)
     }
+    /* Sahil also helped with creating the game ending screen although our group did the if else statements and the supreme background*/
     override func render(canvas:Canvas) {
           let leftScoreboardScore = Int(InteractionLayer.leftScoreboard.scoreboard.text)!
             let rightScoreboardScore = Int(InteractionLayer.rightScoreboard.scoreboard.text)!

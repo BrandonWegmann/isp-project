@@ -1,6 +1,8 @@
 import Igis
 import Scenes
 
+/* had help from Sahil in getting the scoreboard to work */
+
 class Scoreboard: RenderableEntity {
     let scoreboard: Text
 

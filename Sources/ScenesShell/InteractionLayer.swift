@@ -130,7 +130,7 @@ class InteractionLayer : Layer, KeyDownHandler {
             Self.ball.velocityY = -Self.ball.velocityY-2
         }
     }
-
+ /* Sahil helped us create the scoreboard and our group used the converting of the text to Int to make the scoreboard to work as seen below */ 
     override func postCalculate(canvas:Canvas){
         if Self.ball.boundingRect().topRight.x >= canvas.canvasSize!.width  {
             if(Int(Self.rightScoreboard.scoreboard.text)! > 0){                
